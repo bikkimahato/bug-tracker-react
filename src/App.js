@@ -6,7 +6,7 @@ import BugListTable from "./BugListTable";
 
 const App = () => {
   const [newBugDescription, setNewBugDescription] = useState("");
-  const [newBugPriority, setNewBugPriority] = useState("");
+  const [newBugPriority, setNewBugPriority] = useState("Medium");
   const [bugList, setBugList] = useState([]);
 
   const addBug = (event) => {
@@ -48,7 +48,11 @@ const App = () => {
           <option value="Medium">Medium</option>
           <option value="High">High</option>
         </select>
-        <button data-testid="add-bug" type="submit">
+        <button
+          data-testid="add-bug"
+          type="submit"
+          disabled={!newBugDescription}
+        >
           Add New Bug
         </button>
       </form>
